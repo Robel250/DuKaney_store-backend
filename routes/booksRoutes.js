@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/", authenticate, upload.single("image"), async (req, res) => {
     try {
         const { title, author, publishYear } = req.body;
+        console.log("user",req.userId)
         if (!title || !author || !publishYear) {
             return res.status(400).send({
                 message: "Please send all required fields: title, author, publishYear",
@@ -28,6 +29,7 @@ router.post("/", authenticate, upload.single("image"), async (req, res) => {
             userId: req.userId, // Associate book with the logged-in user
         };
 
+        console.log(newBook)
         const book = await Book.create(newBook);
         return res.status(201).send(book);
     } catch (error) {
