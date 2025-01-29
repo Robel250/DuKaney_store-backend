@@ -38,7 +38,7 @@ const sendVerificationEmail = async (email, token) => {
         from: process.env.EMAIL,
         to: email,
         subject: 'Verify your email',
-        html: `<p>Click <a href="http://localhost:${PORT}/user/verify?token=${token}">here</a> to verify your email.</p>`,
+        html: `<p>Click <a href="https://as1backend.onrender.com/user/verify?token=${token}">here</a> to verify your email.</p>`,
     };
 
     try {
