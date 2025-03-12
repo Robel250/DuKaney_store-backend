@@ -40,7 +40,7 @@ const sendVerificationEmail = async (email, token) => {
         from: `"Dukaney-Store" <${process.env.EMAIL}>`,
         to: email,
         subject: 'Verify your email',
-        html: `<p>Click <a href="http://localhost:4444/user/verify?token=${token}">here</a> to verify your email.</p>`,
+        html: `<p>Click <a href="https://dukaney-store-backend-1.onrender.com/user/verify?token=${token}">here</a> to verify your email.</p>`,
     };
 
     try {
@@ -221,7 +221,7 @@ router.post('/forgot-password', async (req, res) => {
         await user.save();
 
         // Send reset email
-        const resetUrl = `http://localhost:5175/user/reset-password?token=${resetToken}`;
+        const resetUrl = `https://du-kaney-store.vercel.app/user/reset-password?token=${resetToken}`;
         
         const mailOptions = {
             from: `"Dukaney-Store" <${process.env.EMAIL}>`,
